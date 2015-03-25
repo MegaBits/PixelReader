@@ -13,6 +13,7 @@
 		495C72E21AC3150300BE67C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495C72E11AC3150300BE67C8 /* Images.xcassets */; };
 		495C72E51AC3150300BE67C8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495C72E31AC3150300BE67C8 /* LaunchScreen.xib */; };
 		495C72F11AC3150400BE67C8 /* PixelReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C72F01AC3150400BE67C8 /* PixelReaderTests.swift */; };
+		495C72FC1AC317C800BE67C8 /* InspectionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C72FB1AC317C800BE67C8 /* InspectionImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		495C72EA1AC3150400BE67C8 /* PixelReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		495C72EF1AC3150400BE67C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		495C72F01AC3150400BE67C8 /* PixelReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelReaderTests.swift; sourceTree = "<group>"; };
+		495C72FB1AC317C800BE67C8 /* InspectionImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InspectionImage.swift; path = InspectionImage/InspectionImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		495C72D71AC3150300BE67C8 /* PixelReader */ = {
 			isa = PBXGroup;
 			children = (
+				495C72FA1AC317A600BE67C8 /* InspectionImage */,
 				495C72DA1AC3150300BE67C8 /* AppDelegate.swift */,
 				495C72DC1AC3150300BE67C8 /* ViewController.swift */,
 				495C72DE1AC3150300BE67C8 /* Main.storyboard */,
@@ -110,6 +113,14 @@
 				495C72EF1AC3150400BE67C8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		495C72FA1AC317A600BE67C8 /* InspectionImage */ = {
+			isa = PBXGroup;
+			children = (
+				495C72FB1AC317C800BE67C8 /* InspectionImage.swift */,
+			);
+			name = InspectionImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				495C72DD1AC3150300BE67C8 /* ViewController.swift in Sources */,
+				495C72FC1AC317C800BE67C8 /* InspectionImage.swift in Sources */,
 				495C72DB1AC3150300BE67C8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +419,7 @@
 				495C72F61AC3150400BE67C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		495C72F71AC3150400BE67C8 /* Build configuration list for PBXNativeTarget "PixelReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +428,7 @@
 				495C72F91AC3150400BE67C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
