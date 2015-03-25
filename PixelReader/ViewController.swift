@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     private let imageView = UIImageView()
     private let imageButton = UIButton()
     private let colorView = UIView()
+    private let timeTakenLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,9 @@ class ViewController: UIViewController {
         self.scrollView.addSubview(self.imageButton)
         self.view.addSubview(self.scrollView)
         
+        self.timeTakenLabel.font = UIFont.systemFontOfSize(14)
+        self.timeTakenLabel.textAlignment = NSTextAlignment.Center
+        self.colorView.addSubview(self.timeTakenLabel)
         self.view.addSubview(self.colorView)
     }
 
@@ -44,14 +48,39 @@ class ViewController: UIViewController {
         let touch = event.touchesForView(self.imageButton)!.anyObject() as UITouch
         let touchPoint = touch.locationInView(self.imageButton)
         
+        let startDate = NSDate()
+        
         let color = self.inspectionImage.colorForPixel(point: touchPoint)
         
-        println("color: \(color)")
+        let endTimeInterval = NSDate().timeIntervalSinceDate(startDate)
         
         if color != nil {
             self.colorView.backgroundColor = color
         } else {
             self.colorView.backgroundColor = UIColor.blackColor()
+        }
+        
+        self.updateTimeTakenLabel(endTimeInterval)
+    }
+    
+    private func updateTimeTakenLabel(timeInterval: NSTimeInterval) {
+        
+        let timeTakenString = String(format: "%.4f", timeInterval * 1000)
+        
+        self.timeTakenLabel.text = "Time taken (milliseconds): \(timeTakenString)"
+        
+        if self.colorView.backgroundColor == nil {
+            return
+        }
+        
+        var white: CGFloat = 0
+        
+        self.colorView.backgroundColor!.getWhite(&white, alpha: nil)
+        
+        if white < 0.5 {
+            self.timeTakenLabel.textColor = UIColor.whiteColor()
+        } else {
+            self.timeTakenLabel.textColor = UIColor.blackColor()
         }
     }
     
@@ -67,6 +96,8 @@ class ViewController: UIViewController {
             y: self.view.frame.size.height - 100,
             width: self.view.frame.size.width,
             height: 100)
+        
+        self.timeTakenLabel.frame = self.colorView.bounds
     }
 }
 

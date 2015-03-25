@@ -41,10 +41,6 @@ class InspectionImage: UIImage {
         let green = data[pixelPoint + 1]
         let blue = data[pixelPoint + 2]
         
-        println("red: \(red)")
-        println("green: \(green)")
-        println("blue: \(blue)")
-        
         let color = UIColor(
             red: CGFloat(red) / 255.0,
             green: CGFloat(green) / 255.0,
