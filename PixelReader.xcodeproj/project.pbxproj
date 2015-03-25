@@ -13,7 +13,7 @@
 		495C72E21AC3150300BE67C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495C72E11AC3150300BE67C8 /* Images.xcassets */; };
 		495C72E51AC3150300BE67C8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495C72E31AC3150300BE67C8 /* LaunchScreen.xib */; };
 		495C72F11AC3150400BE67C8 /* PixelReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C72F01AC3150400BE67C8 /* PixelReaderTests.swift */; };
-		495C72FC1AC317C800BE67C8 /* InspectionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C72FB1AC317C800BE67C8 /* InspectionImage.swift */; };
+		497740AD1AC359CC00290CB7 /* MBInspectionImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 497740AC1AC359CC00290CB7 /* MBInspectionImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,9 @@
 		495C72EA1AC3150400BE67C8 /* PixelReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		495C72EF1AC3150400BE67C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		495C72F01AC3150400BE67C8 /* PixelReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelReaderTests.swift; sourceTree = "<group>"; };
-		495C72FB1AC317C800BE67C8 /* InspectionImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InspectionImage.swift; path = InspectionImage/InspectionImage.swift; sourceTree = "<group>"; };
+		497740AA1AC359CB00290CB7 /* PixelReader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PixelReader-Bridging-Header.h"; sourceTree = "<group>"; };
+		497740AB1AC359CC00290CB7 /* MBInspectionImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBInspectionImage.h; path = InspectionImage/MBInspectionImage.h; sourceTree = "<group>"; };
+		497740AC1AC359CC00290CB7 /* MBInspectionImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBInspectionImage.m; path = InspectionImage/MBInspectionImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +120,9 @@
 		495C72FA1AC317A600BE67C8 /* InspectionImage */ = {
 			isa = PBXGroup;
 			children = (
-				495C72FB1AC317C800BE67C8 /* InspectionImage.swift */,
+				497740AB1AC359CC00290CB7 /* MBInspectionImage.h */,
+				497740AC1AC359CC00290CB7 /* MBInspectionImage.m */,
+				497740AA1AC359CB00290CB7 /* PixelReader-Bridging-Header.h */,
 			);
 			name = InspectionImage;
 			sourceTree = "<group>";
@@ -224,8 +228,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				497740AD1AC359CC00290CB7 /* MBInspectionImage.m in Sources */,
 				495C72DD1AC3150300BE67C8 /* ViewController.swift in Sources */,
-				495C72FC1AC317C800BE67C8 /* InspectionImage.swift in Sources */,
 				495C72DB1AC3150300BE67C8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,11 +355,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PixelReader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PixelReader/PixelReader-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -363,11 +370,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PixelReader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PixelReader/PixelReader-Bridging-Header.h";
 			};
 			name = Release;
 		};

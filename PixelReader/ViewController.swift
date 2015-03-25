@@ -9,14 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    private let inspectionImage = InspectionImage(image: UIImage(named: "unsplash")!)!
+
+    private let inspectionImage = MBInspectionImage(image: UIImage(named: "unsplash")!)!
     
     private let scrollView = UIScrollView()
     private let imageView = UIImageView()
     private let imageButton = UIButton()
     private let colorView = UIView()
     private let timeTakenLabel = UILabel()
+    private let inspectImageButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +27,20 @@ class ViewController: UIViewController {
         self.imageView.image = self.inspectionImage
         self.imageView.contentMode = UIViewContentMode.TopLeft
         self.imageView.frame = CGRect(x: 0, y: 0, width: 1024, height: 683)
+        
         self.imageButton.frame = self.imageView.bounds
         self.imageButton.addTarget(self, action: Selector("respondToImageButtonPress:event:"), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        self.inspectImageButton.setTitle("Inspect Image", forState: UIControlState.Normal)
+        self.inspectImageButton.frame = CGRect(x: 10, y: 20, width: 150, height: 60)
+        self.inspectImageButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.inspectImageButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
+        self.inspectImageButton.addTarget(self, action: Selector("inspectImage"), forControlEvents: UIControlEvents.TouchUpInside)
+        
         self.scrollView.contentSize = CGSize(width: 1024, height: 683)
         self.scrollView.addSubview(self.imageView)
         self.scrollView.addSubview(self.imageButton)
+        self.scrollView.addSubview(self.inspectImageButton)
         self.view.addSubview(self.scrollView)
         
         self.timeTakenLabel.font = UIFont.systemFontOfSize(14)
@@ -50,7 +60,7 @@ class ViewController: UIViewController {
         
         let startDate = NSDate()
         
-        let color = self.inspectionImage.colorForPixel(point: touchPoint)
+        let color = self.inspectionImage.colorForPixelAtPoint(touchPoint)
         
         let endTimeInterval = NSDate().timeIntervalSinceDate(startDate)
         
@@ -59,6 +69,16 @@ class ViewController: UIViewController {
         } else {
             self.colorView.backgroundColor = UIColor.blackColor()
         }
+        
+        self.updateTimeTakenLabel(endTimeInterval)
+    }
+    
+    func inspectImage() {
+        let startDate = NSDate()
+        
+        let colors = self.inspectionImage.colorsForPixelsInRect(self.imageView.bounds)
+        
+        let endTimeInterval = NSDate().timeIntervalSinceDate(startDate)
         
         self.updateTimeTakenLabel(endTimeInterval)
     }
